@@ -2,7 +2,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 19.0"
 
-  cluster_name    = "var.cluster_name"
+  cluster_name    = "fiap"
   cluster_version = "1.27"
   cluster_endpoint_private_access = true
 
