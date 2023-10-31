@@ -10,7 +10,7 @@ module "eks" {
   subnet_ids = module.vpc.private_subnets
 
   eks_managed_node_groups = {
-    alura = {
+    fiap = {
       min_size     = 1
       max_size     = 10
       desired_size = 3
