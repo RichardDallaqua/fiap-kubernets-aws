@@ -44,6 +44,9 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: "us-east-2"
 
+    - name: Terraform refresh
+      run: terraform refresh
+
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan -input=false
@@ -52,12 +55,3 @@ jobs:
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
       run: terraform apply -auto-approve -input=false
-
-    - name: Terraform refresh
-      run: terraform refresh
-
-    - name: Terraform state list
-      run: terraform state list
-
-    - name: Terraform destroy
-      run: terraform destroy
