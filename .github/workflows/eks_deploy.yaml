@@ -1,0 +1,32 @@
+name: deploy
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  terraform:
+    name: 'deploy'
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      AWS_REGION: us-east-2
+      CLUSTER_NAME: fiap
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+      
+    - name: AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+      
+    - name: Run application deploy
+      uses: nikosch86/github-action-eks-kubectl@main
+      with:
+        command: "apply -f k8s/"
+      env:
+        EKS_CLUSTER: ${{ env.CLUSTER_NAME }}
