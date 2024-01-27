@@ -5,4 +5,4 @@ metadata:
 data:
   POSTGRES_DB: payments
   POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: 123
+  POSTGRES_PASSWORD: "123"
