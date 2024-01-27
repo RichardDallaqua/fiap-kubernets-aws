@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: producao-deployment
+  labels:
+    app: producao-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: producao-service
+  template:
+    metadata:
+      labels:
+        app: producao-service
+    spec:
+      containers:
+        - name: producao-service
+          image: 637423657780.dkr.ecr.us-east-2.amazonaws.com/fiap-producao-ms:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+

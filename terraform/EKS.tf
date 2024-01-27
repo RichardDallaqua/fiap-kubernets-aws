@@ -12,7 +12,7 @@ module "eks" {
   eks_managed_node_groups = {
     fiap = {
       min_size     = 1
-      max_size     = 10
+      max_size     = 4
       desired_size = 3
       vpc_security_group_ids = [aws_security_group.fiap_cluster.id]
       instance_types = ["t2.micro"]
