@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: fiap-lanchonete-service
+  name: pagamento-service
 spec:
   selector:
-    app: fiap-lanchonete-service
+    app: pagamento-service
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 5000
+      targetPort: 9090

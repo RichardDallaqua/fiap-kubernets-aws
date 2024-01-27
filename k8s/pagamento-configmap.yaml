@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pagamento-config
+  labels:
+    name: pagamento-config
+data:
+  URL_BD: jdbc:postgresql://postgres-service:5432/postgres?currentSchema=sch_payments
